@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("../static/images/bg4_image.jpg"); /* ✅ Add background image */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: 100px auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+        }
+        h2 {
+            text-align: center;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .result {
+            font-size: 18px;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+        }
+        .back-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Prediction Results</h2>
+        <p><strong>Molecule ID:</strong> {{ molecule_index }}</p>
+        <p><strong>Model Used:</strong> {{ selected_model }}</p>
+        <p><strong>True Atomization Energy:</strong> {{ "%.2f"|format(true_energy) }} kcal/mol</p>
+        <p><strong>Predicted Atomization Energy:</strong> {{ "%.2f"|format(predicted_energy) }} kcal/mol</p>
+        <p class="result"><strong>Reactivity Status:</strong> {{ reactivity_result }}</p>
+        <a href="/input" class="back-btn">Try Another Prediction</a>
+    </div>
+</body>
+</html>

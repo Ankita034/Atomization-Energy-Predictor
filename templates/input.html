@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Input Molecule ID</title>
+    <style>
+        /* Fullscreen Background with Fixed Size */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("static/images/bg_image.jpg"); /* Correct path */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Container Styling */
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
+            padding: 50px 40px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Select Molecule and Model</h2>
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label for="molecule_id">Enter Molecule ID:</label>
+                <input type="number" id="molecule_id" name="molecule_id" required min="0" max="7164">
+            </div>
+
+            <div class="form-group">
+                <label for="model">Select Model:</label>
+                <select id="model" name="model" required>
+                    <option value="xgb">XGBoost</option>
+                    <option value="rf">Random Forest</option>
+                    <option value="gnn">GNN</option>
+                </select>
+            </div>
+
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
